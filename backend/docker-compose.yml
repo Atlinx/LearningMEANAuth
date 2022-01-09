@@ -5,9 +5,9 @@ services:
     # build . runs the "Dockerfile"
     build: .
     environment:
-      - DB_HOST=db
+      DB_HOST: "db"
     ports:
-      # Binds port 8080 on the container to 8080 on the computer that's running Docker
+      # Binds port 8080 on the computer that's running Docker to port 8080 on the container.
       - "8080:8080"
     depends_on:
       - db
@@ -21,11 +21,13 @@ services:
       # Binds the top-level "db-data" volume to the foo folder inside the container. 
       - data:/db
     ports:
-      # Binds port 27017 on the container to 27017 on the computer that's running Docker.
-      - "27017:27017"
-    env_file:
-      - .env
+      # Binds port 27017 on the computer that's running Docker to port 27017 on the container.
+      
+      # We must bind to a host port other than 27017 because our actual computer may be running 
+      # the MongoDB service, which takes up the 27017 port.
+      - "27018:27017"
     restart: unless-stopped
+    command: mongod
 
 # These are top level volumes, which are automatically created by Docker
 volumes:

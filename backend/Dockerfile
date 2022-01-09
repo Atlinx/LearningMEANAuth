@@ -14,9 +14,7 @@ RUN npm install
 
 COPY . .
 
-ENV PORT=8080
-
-EXPOSE 8080
+RUN npm run build
 
 # Only one CMD exists per dockerfile.
 # Tells how to start the program.
