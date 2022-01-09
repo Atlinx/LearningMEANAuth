@@ -4,9 +4,9 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "lint": "eslint . --fix --ext .ts",
-    "prebuild": "eslint . --ext .ts",
-    "build": "tsc",
+    "lint": "eslint src --fix --ext .ts",
+    "prebuild": "eslint src --ext .ts",
+    "build": "tsc --project tsconfig.build.json",
     "prebuild-start": "npm run build",
     "build-start": "node .",
     "start": "node .",
