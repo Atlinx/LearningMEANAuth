@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Form } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
-
+  
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
