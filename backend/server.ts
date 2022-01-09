@@ -1,3 +1,9 @@
+/* eslint-disable import/first */
+
+// Load Environment variables
+import dotenv from 'dotenv';
+dotenv.config();
+
 // Server
 import express from 'express';
 import cors from 'cors';
@@ -44,7 +50,7 @@ app.listen(PORT, () => {
 const Role = db.RoleModel;
 
 db.mongoose
-  .connect(`mongodb://${DBConfig.HOST}:${DBConfig.PORT}/${DBConfig.DB}`, {
+  .connect(`mongodb://${DBConfig.HOST}:${DBConfig.PORT}/${DBConfig.NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   } as ConnectOptions)
@@ -59,6 +65,7 @@ db.mongoose
 
 function initial(): void {
   void Role.estimatedDocumentCount({}, (err: NativeError, count: number) => {
+    console.log(count);
     if (!err && count === 0) {
       new Role({
         name: 'user'

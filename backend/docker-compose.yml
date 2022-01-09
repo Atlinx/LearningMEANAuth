@@ -1,0 +1,32 @@
+# Comopse file version
+version: '3'
+services:
+  api:
+    # build . runs the "Dockerfile"
+    build: .
+    environment:
+      - DB_HOST=db
+    ports:
+      # Binds port 8080 on the container to 8080 on the computer that's running Docker
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: "mongo"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${DB_USER}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_PASS}"
+      MONGO_INITDB_DB: "${DB_NAME}"
+    volumes:
+      # Binds the top-level "db-data" volume to the foo folder inside the container. 
+      - data:/db
+    ports:
+      # Binds port 27017 on the container to 27017 on the computer that's running Docker.
+      - "27017:27017"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+# These are top level volumes, which are automatically created by Docker
+volumes:
+  data:

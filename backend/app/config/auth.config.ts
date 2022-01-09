@@ -1,3 +1,3 @@
 export const Config = {
-  SECRET: 'the-super-secret-really-hidden-key'
+  SECRET: process.env.AUTH_SECRET
 };
