@@ -4,7 +4,7 @@ This is the backend to the app.
 
 It's built with NodeJS, Express, and MongoDB.
 
-It includes authentication and fetching of 
+It includes authentication of users and ensures only users with the appropriate roles can receive certain types of data. The backend uses a JSON Web Token to authenticate a user after they are logged in.
 
 ## Starting the Backend
 
