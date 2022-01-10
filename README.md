@@ -1,4 +1,5 @@
 # LearningMEANAuth
+
 Learning MEAN Stack with authentication using JWT.
 
 I followed these two tutorials to build the app:
@@ -7,3 +8,11 @@ I followed these two tutorials to build the app:
 - [Node.js + MongoDB: User Authentication & Authorization with JWT](https://www.bezkoder.com/node-js-mongodb-auth-jwt/)
 
 I opted to use typescript for the backend as well, and uses custom linting rules specified in `backend/.eslintrc`.
+
+## Running Everything
+
+To run both the backend and the frontend, run
+
+```bash
+> docker-compose up --build
+```

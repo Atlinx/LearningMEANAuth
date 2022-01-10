@@ -1,5 +1,11 @@
 # Frontend
 
+This is the frontend of the app.
+
+It's built with NodeJS and Angular.
+
+It includes UI for account creation and logging in, and different pages for the 3 possible account roles of 'user', 'moderator', and 'admin'. Based on the roles that a logged in user has, this application will show the appropriate pages.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
